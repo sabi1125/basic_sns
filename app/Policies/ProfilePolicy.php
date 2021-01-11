@@ -30,7 +30,6 @@ class ProfilePolicy
      */
     public function view(User $user, Profile $profile)
     {
-        //
     }
 
     /**
@@ -41,7 +40,7 @@ class ProfilePolicy
      */
     public function create(User $user)
     {
-        //
+        
     }
 
     /**

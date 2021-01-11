@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Storage;
 
 class PostsController extends Controller
 {
@@ -21,17 +22,58 @@ class PostsController extends Controller
     {
         $data = request()->validate(
             [
-            "title"=>"required",
-            "description"=>"required",
-            "post"=>"required"
+            "post"=>"required",
+            "images"=>["","image"]
             ]
         );
 
+        $check = request("images");
 
-        auth()->user()->posts()->create($data);
+        
+        if($check !== null){
 
+            $img= request("images")->store("uploads","s3");
 
-        return redirect("/profile/" . auth()->user()->id);
-
+            $imagePath = Storage::disk("s3")->url($img);
+    
+    
+            auth()->user()->posts()->create([
+                
+                "post"=>$data["post"],
+                "images"=>$imagePath
+            ]);
+    
+    
+            return redirect("/profile/" . auth()->user()->id);
+        }else{
+            
+    
+            auth()->user()->posts()->create([
+              
+                "post"=>$data["post"]
+            ]);
+    
+    
+            return redirect("/profile/" . auth()->user()->id);
+        }
     }
+
+
+    public function index()
+    {
+        
+        $users = auth()->user()->following()->pluck("profiles.user_id");
+        $posts = Post::whereIn("user_id",$users)->orderBy("created_at","DESC")->get();
+        $user = auth()->user();
+        return view("posts.index",compact("posts","user"));
+    }
+    public function show(Post $post)
+    {
+
+        return view("posts.show",compact("post"));
+    }
+
+
+
+
 }

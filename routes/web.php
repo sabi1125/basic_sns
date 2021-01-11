@@ -13,17 +13,40 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "PostsController@index")->name("profile.index");
+
 
 Auth::routes();
 
 
-Route::get('/profile/{user}', "ProfilesController@index")->name('profile.show');
+//profile route
+
+
+Route::get("/profile/create" , "ProfilesController@create")->name("profile.create"); 
+Route::post("/profile" , "ProfilesController@store")->name("profile.store");
+Route::get('/profile/{user}', "ProfilesController@show")->name('profile.show');
 Route::get("/profile/{user}/edit","ProfilesController@edit")->name('profile.edit');
 Route::patch('/profile/{user}', "ProfilesController@update")->name('profile.update');
 
- 
-Route::get('/p/create', "PostsController@create")->name('profile.show');
+
+//posts routes
+
+Route::get('/p/create', "PostsController@create")->name('posts.create');
 Route::post('/p', "PostsController@store");
+Route::get("/p/{post}","PostsController@show");
+
+
+
+
+//photos routes
+
+
+Route::get("/photo/create","PhotosController@create")->name("photo.create");
+Route::post("/photo", "PhotosController@store")->name("photo.store");
+Route::get("/photo/{user}","PhotosController@show")->name("phots.show");
+
+
+
+//follow posts
+
+Route::post("/follow/{user}","FollowsController@store");
