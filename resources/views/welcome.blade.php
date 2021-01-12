@@ -27,11 +27,18 @@
                 <div class="hidden  px-6 py-4 sm:block">
 
 
-                    <h1 class="text-center text-secondary">SNS</h1>
+                    <h1 class="text-center text-secondary">
+                        Hi! There <a href="/profile/{{$user->profile->id}}"> {{$user->username}} </a> ;) Hope you have a great time using this website!!HOHA
+                    </h1>
 
 
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="/" class="text-sm text-gray-700 underline">
+                            <div class="col-4 d-flex text-center">
+                            <img src="{{$user->profile->images}}" alt="">
+                            <h1>{{$user->username}}</h1>
+                        </div>
+                        </a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 

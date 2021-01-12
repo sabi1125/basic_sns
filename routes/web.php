@@ -23,6 +23,7 @@ Auth::routes();
 
 
 Route::get("/profile/create" , "ProfilesController@create")->name("profile.create"); 
+Route::get("/profile/auth","ProfilesController@index");
 Route::post("/profile" , "ProfilesController@store")->name("profile.store");
 Route::get('/profile/{user}', "ProfilesController@show")->name('profile.show');
 Route::get("/profile/{user}/edit","ProfilesController@edit")->name('profile.edit');

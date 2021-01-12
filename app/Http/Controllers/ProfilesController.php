@@ -12,7 +12,12 @@ class ProfilesController extends Controller
 
     public function index(User $user)
     {
-        return view("welcome");
+        if(auth()->user()->profile == null){
+            return view("profiles.create",compact("user"));
+        }else{
+            $user = auth()->user();
+            return view("welcome",compact("user"));
+        }
     }
 
 
@@ -56,6 +61,7 @@ redirect
 
     public function create(User $user)
     {
+        
         return view("profiles.create",compact("user"));
     }
 
@@ -179,7 +185,9 @@ checking if the images section is filled
         }        return redirect("/profile/{$user->id}");
     }
 
-    
+
+
+        
 
 
     
