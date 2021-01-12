@@ -8,7 +8,7 @@
 <div class="container">
 
     <h1>Edit profile</h1>
-    <form action="/profile/{{$user->id}}" method="post" enctype="multipart/form-data">
+    <form action="/profile/{{$user->username}}" method="post" enctype="multipart/form-data">
 
         @METHOD("PATCH")
 

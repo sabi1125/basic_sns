@@ -23,14 +23,18 @@ class ProfilesController extends Controller
 
 
 
-    public function show(User $user)
+    public function show($profile)
     {
 
 
 /*
 checking if the searched profile is followed or not and showing the profiles
 */
-        
+
+$user=User::where("username",$profile)->first();
+
+
+
         if(auth()->user()){
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
@@ -106,7 +110,7 @@ storing the images in amazons3
             ]);
     
     
-            return redirect("/profile/" . auth()->user()->id);
+            return redirect("/" );
         }else{
             
     
@@ -117,7 +121,7 @@ storing the images in amazons3
                 "url"=>$data["url"]
                             ]);
     
-            return redirect("/profile/" . auth()->user()->id);
+            return redirect("/" );
     
         }
     }
@@ -126,16 +130,19 @@ storing the images in amazons3
 
     
     
-    public function edit(User $user)
+    public function edit($profile)
     {
+        $user=User::where("username",$profile)->first();
         $this->authorize('update',$user->profile);
         return view("profiles.edit",compact("user"));
 
     }
 
 
-    public function update(User $user)
+    public function update($profile)
     {
+        $user = User::where("username",$profile)->first();
+
         $this->authorize('update',$user->profile);
 
         $data = request()->validate([
@@ -169,7 +176,7 @@ checking if the images section is filled
             ]);
     
     
-            return redirect("/profile/" . auth()->user()->id);
+            return redirect("/profile/" . auth()->user()->username);
         }else{
             
     
@@ -180,9 +187,9 @@ checking if the images section is filled
                 "url"=>$data["url"]
             ]);
     
-            return redirect("/profile/" . auth()->user()->id);
+            return redirect("/profile/" . auth()->user()->username);
     
-        }        return redirect("/profile/{$user->id}");
+        }        return redirect("/profile/{$user->username}");
     }
 
 

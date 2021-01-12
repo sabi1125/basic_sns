@@ -53,7 +53,7 @@ checking and saving the images and post data
             ]);
     
     
-            return redirect("/profile/" . auth()->user()->id);
+            return redirect("/profile/" . auth()->user()->username);
         }else{
             
     
@@ -63,7 +63,7 @@ checking and saving the images and post data
             ]);
     
     
-            return redirect("/profile/" . auth()->user()->id);
+            return redirect("/profile/" . auth()->user()->username);
         }
     }
 

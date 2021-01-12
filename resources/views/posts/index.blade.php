@@ -4,7 +4,7 @@
 
 
 <div class="container border border-black text-center p-5">
-<a href="/profile/{{$user->profile->id}}">
+<a href="/profile/{{$user->username}}">
     <img src="{{ $user->profile->images }}" alt="" class="col-md-3 mb-4 rounded-circle">
 <h4> {{($user->username)}}</h4>
 </a>

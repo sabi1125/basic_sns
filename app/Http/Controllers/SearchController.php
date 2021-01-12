@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\User;
 class SearchController extends Controller
 {
-    public function search(User $user,$uname)
+    public function search($profile)
     {
+        $find = User::where("username",$profile)->first();
         
-        $usename=[$uname];
-        $collection =collect($user->where("username",$usename)->pluck("id"));
-        $id=$collection->implode("",",");
-        return redirect("/profile/" . $id );
 
+
+
+        if($find){
+            return redirect("/profile/" . $profile  );
+        }else{
+            return redirect("/");
+        }
+        
     }
 }
