@@ -17,14 +17,19 @@
 @forelse($posts as $post)
     
         
-<div class="container p-5 mt-3 bg-white shadow d-flex flex-column rounded">
+<div class="container text-start p-5 mt-3 bg-white shadow d-flex flex-column rounded">
     <div class="d-flex flex-row " >
         
 
             <img src="{{ $post->user->profile->images }}" alt="" class="col-md-1 mb-4 rounded-circle">
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column ">
+            <a href="/profile/{{$post->user->username }}">
+
             <h5>{{ $post->user->username }}</h5> 
+
+        </a>
             created at: {{$post->created_at}}
+
         </div>
         </div>
     
