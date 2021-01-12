@@ -3,8 +3,7 @@
 
  <div>
      <div class="container bg-dark py-4 px-3 text-center text-white rounded mt-5 mb-5 h6 d-flex flex-row justify-content-center">
-         <a href="#" class="text-white mr-3">Friends</a>
-         <a href="#" class="text-white mr-3">Updates</a>
+
          <a href="/p/create" class="text-white mr-3">Make new post</a>
 
 <form>

@@ -2027,7 +2027,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["userId", "follows"],
   mounted: function mounted() {
@@ -38446,14 +38445,6 @@ var render = function() {
           "container bg-dark py-4 px-3 text-center text-white rounded mt-5 mb-5 h6 d-flex flex-row justify-content-center"
       },
       [
-        _c("a", { staticClass: "text-white mr-3", attrs: { href: "#" } }, [
-          _vm._v("Friends")
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "text-white mr-3", attrs: { href: "#" } }, [
-          _vm._v("Updates")
-        ]),
-        _vm._v(" "),
         _c(
           "a",
           { staticClass: "text-white mr-3", attrs: { href: "/p/create" } },

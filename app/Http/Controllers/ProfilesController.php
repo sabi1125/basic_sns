@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Storage;
+use Image;
 class ProfilesController extends Controller
 {
 
