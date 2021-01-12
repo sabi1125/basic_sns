@@ -35,6 +35,7 @@
             }
         },
         methods:{
+            //follow other users action
             followUser(){
                 console.log(this.userId)
                     axios.post("/follow/" + this.userId)
@@ -44,6 +45,9 @@
                     });
            
             },
+
+
+            //search for other users action
              keyEvent(e){
                  if(e.key==="Enter" && this.search ){
                      this.searchData.push(this.search);

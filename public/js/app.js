@@ -2041,6 +2041,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    //follow other users action
     followUser: function followUser() {
       var _this = this;
 
@@ -2050,6 +2051,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
       });
     },
+    //search for other users action
     keyEvent: function keyEvent(e) {
       if (e.key === "Enter" && this.search) {
         this.searchData.push(this.search);
