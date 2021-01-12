@@ -38454,9 +38454,11 @@ var render = function() {
           _vm._v("Updates")
         ]),
         _vm._v(" "),
-        _c("a", { staticClass: "text-white mr-3", attrs: { href: "#" } }, [
-          _vm._v("Notifications")
-        ]),
+        _c(
+          "a",
+          { staticClass: "text-white mr-3", attrs: { href: "/p/create" } },
+          [_vm._v("Make new post")]
+        ),
         _vm._v(" "),
         _c("form", [
           _c("input", {
