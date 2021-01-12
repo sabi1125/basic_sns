@@ -13,6 +13,11 @@ class CreatesProfileUserPivotTable extends Migration
      */
     public function up()
     {
+
+
+         /*
+        toggleable relation for following another profiles
+        */
         Schema::create('profile_user', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("profile_id");

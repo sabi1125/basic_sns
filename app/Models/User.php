@@ -47,18 +47,34 @@ class User extends Authenticatable
 
     public function profile()
     {
-
+         /*
+            Every user has one profile
+            -- setting up one to one relation
+        */
         return $this->hasOne(Profile::class);
 
     }
 
     public function posts()
     {
+
+         /*
+            Every user can have many posts
+            -- setting up one to many relation 
+         */
         return $this->hasMany(Post::class)->orderBy("created_at","DESC");
     }
 
     public function following()
     {
+
+        
+         /*
+            Every user can follow multiple profiles and vise versa
+            -- setting up many to many relation 
+         */
+
+
         return $this->belongsToMany(Profile::class);
     }
 }

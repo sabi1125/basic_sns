@@ -14,6 +14,11 @@ class CreateProfilesTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
+            
+            /*
+            creating the profiles tables
+            */
+            
             $table->id();
             $table->unsignedBigInteger("user_id");
             $table->text("images")->nullable();

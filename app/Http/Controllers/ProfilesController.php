@@ -22,17 +22,32 @@ class ProfilesController extends Controller
     {
 
 
-
-
+/*
+checking if the searched profile is followed or not and showing the profiles
+*/
+        
         if(auth()->user()){
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
-        if(auth()->user()->profile == null){
+
+
+/*
+making sure that the profiles established before the user can browse other pages         
+*/
+        
+
+        if(auth()->user()->profile == null){                                                                    
             return view("profiles.create",compact("user"));
         }else{
             return view('profiles.show',compact("user","follows"));
         }
         }else{
+
+            
+/*
+redirect        
+*/
+        
             return view("auth.login");
         }
     }
@@ -46,7 +61,13 @@ class ProfilesController extends Controller
 
 
     public function store(){
-        
+    
+ 
+/*
+passing the data of the profile to the database        
+*/
+               
+
         $data = request()->validate([
             'title'=>'required',
             'description'=>'required',
@@ -63,6 +84,10 @@ class ProfilesController extends Controller
 
             $img= request("images")->store("uploads","s3");
 
+/*
+storing the images in amazons3        
+*/
+        
             $imagePath = Storage::disk("s3")->url($img);
     
     
@@ -117,7 +142,11 @@ class ProfilesController extends Controller
 
         $check = request("images");
 
-        
+  
+/*
+checking if the images section is filled        
+*/
+              
         if($check !== null){
 
             $img= request("images")->store("uploads","s3");

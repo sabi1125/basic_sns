@@ -11,7 +11,11 @@ class Post extends Model
     protected $guarded = [];
     public function user()
     {
+ /*
 
+   every post has only one user
+   -- setting up one to one relation
+ */
         return $this->belongsTo(User::class);
 
     }

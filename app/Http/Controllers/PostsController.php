@@ -9,7 +9,11 @@ class PostsController extends Controller
 {
 
 
+/*
 
+authentication for the pages 
+
+*/
     public function __construct(){
         $this->middleware("auth");
     }
@@ -29,6 +33,11 @@ class PostsController extends Controller
 
         $check = request("images");
 
+        
+/*
+checking and saving the images and post data        
+*/
+        
         
         if($check !== null){
 

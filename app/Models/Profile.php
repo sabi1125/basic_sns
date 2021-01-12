@@ -14,13 +14,23 @@ class Profile extends Model
     protected $guarded = [];
     public function user()
     {
+         /*
+         every profile must only have one user    
+         -- setting up one to one relation 
+        */
         
         return $this->belongsTo(User::class);
 
     }
 
     public function followers()
+
     {
+
+         /*
+        profiles can be followed by many other profiles 
+        -- setting up many to many relation    
+        */
         return $this->belongsToMany(User::class);
     }
 }
