@@ -13,7 +13,7 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', "PostsController@index")->name("profile.index");
+Route::get('/', "PostsController@index")->name("post.index");
 
 
 Auth::routes();
@@ -38,12 +38,7 @@ Route::get("/p/{post}","PostsController@show");
 
 
 
-//photos routes
 
-
-Route::get("/photo/create","PhotosController@create")->name("photo.create");
-Route::post("/photo", "PhotosController@store")->name("photo.store");
-Route::get("/photo/{user}","PhotosController@show")->name("phots.show");
 
 
 

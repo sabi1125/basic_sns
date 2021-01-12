@@ -75,6 +75,8 @@ checking and saving the images and post data
         $posts = Post::whereIn("user_id",$users)->orderBy("created_at","DESC")->get();
         $user = auth()->user();
         return view("posts.index",compact("posts","user"));
+
+        
     }
     public function show(Post $post)
     {
