@@ -2,15 +2,21 @@
     
 
  <div>
-     <div class="container bg-dark py-4 px-3 text-center text-white rounded mt-5 mb-5 h6">
+     <div class="container bg-dark py-4 px-3 text-center text-white rounded mt-5 mb-5 h6 d-flex flex-row justify-content-center">
          <a href="#" class="text-white mr-3">Friends</a>
          <a href="#" class="text-white mr-3">Updates</a>
          <a href="#" class="text-white mr-3">Notifications</a>
 
+<form>
+        <input type="text"  required v-model="search" @keyup="keyEvent">
+</form>
+
 
      </div>
+
  </div>
-    
+
+
 </template>
 
 <script>
@@ -23,7 +29,9 @@
         },
         data:function(){
             return{
-                status:this.follows
+                status:this.follows,
+                search :"Search here",
+                searchData:[]
             }
         },
         methods:{
@@ -34,6 +42,15 @@
                         this.status = !this.status
                         console.log(response.data)
                     });
+           
+            },
+             keyEvent(e){
+                 if(e.key==="Enter" && this.search ){
+                     this.searchData.push(this.search);
+                     this.search="Search here";
+                     window.location.href="/search/" + this.searchData;
+                 }
+
             }
         },
         computed:{
@@ -43,3 +60,18 @@
         }
     }
 </script>
+
+
+<style>
+
+
+input{
+    background: #343a40;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+}
+</style>

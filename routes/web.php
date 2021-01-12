@@ -36,7 +36,7 @@ Route::get('/p/create', "PostsController@create")->name('posts.create');
 Route::post('/p', "PostsController@store");
 Route::get("/p/{post}","PostsController@show");
 
-
+Route::get('/search/{uname}', "SearchController@search")->name("profile.search");
 
 
 
