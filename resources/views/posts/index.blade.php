@@ -60,8 +60,8 @@
 </div>
 @empty
         <div class="container p-5 mt-3  text-gray text-center h2 rounded">
-            <p>You currently can see no posts Try following someone.. <br>
-                Or your friends have not posted anything yet
+            <p>You currently can see no posts Try following "sabir" search it in the search bar.. <br>
+
             </p>
         </div>
 
